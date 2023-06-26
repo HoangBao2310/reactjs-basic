@@ -1,5 +1,7 @@
 import logo from '../assets/images/logo.png';
+import  MyComponent  from './Examples/MyComponent.js';
 import './App.scss';
+
 
 function App() {
   return (
@@ -12,7 +14,9 @@ function App() {
         <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
           Learn React
         </a>
+        <MyComponent></MyComponent>
       </header>
+      
     </div>
   );
 }
