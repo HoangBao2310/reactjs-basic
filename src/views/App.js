@@ -1,6 +1,8 @@
 import logo from '../assets/images/logo.png';
 import  MyComponent  from './Examples/MyComponent.js';
+import Form from './Examples/Form';
 import './App.scss';
+
 
 
 function App() {
@@ -9,12 +11,13 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Hello world
+          Hello world 
         </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
+        {/* <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
           Learn React
-        </a>
+        </a> */}
         <MyComponent></MyComponent>
+        <Form></Form>
       </header>
       
     </div>
