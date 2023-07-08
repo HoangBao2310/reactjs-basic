@@ -1,45 +1,41 @@
 import React from 'react';
 import ChildComponent from './ChildComponent';
+import AddComponent from './AddComponent';
 
 class Form extends React.Component {
-    state = {
-        firstName : '',
-        lastName : '',
+    state ={
         arrJobs: [
-            { id: 'abcJob1', job: 'Developers', salary: '500 $' },
-            { id: 'abcJob2', job: 'Testers', salary: '400 $' },
-            { id: 'abcJob3', job: 'Project managers', salary: '1000 $' }
+            { id: '232', job: 'Developers', salary: '500' },
+            { id: '123', job: 'Testers', salary: '400' },
+            { id: '341', job: 'Project managers', salary: '1000' }
         ]
     }
-    handleFirstName = (event) => {
+    addNewJob =  (job) =>{
+        // cach 1
+        // this.setState({
+        //     arrJobs: [...this.state.arrJobs, job]
+        // })
+
+        // cach 2
+
+        let currentJob = this.state.arrJobs
+        currentJob.push(job)
         this.setState({
-            firstName: event.target.value
+            arrJobs: currentJob
         })
     }
-    handleLastName = (event) => {
+    deleteAJob = (job) =>{
+        let currentJob = this.state.arrJobs
+        currentJob = currentJob.filter(item =>  item.id !== job.id)
         this.setState({
-            lastName: event.target.value
+            arrJobs: currentJob
         })
-    }
-    formClickSubmit = (event) => {
-        event.preventDefault();
-        
-        alert("Submit Done !!")
     }
     render(){
         return(
             <>
-                 <form>
-                    <input placeholder='First Name' type='text' value={this.state.firstName} onChange={(event) => this.handleFirstName(event)}></input>
-                    <br></br>
-                    <input placeholder='Last Name' type='text' value={this.state.lastName} onChange={(event) => this.handleLastName(event)}></input>
-                    <br></br>
-                    <input type='submit' onClick={(event) => this.formClickSubmit(event)}></input>
-                 </form>
-                <ChildComponent name={'First'} age={'25'} ></ChildComponent>
-                <ChildComponent name={'Second' } age={'30'}></ChildComponent>
-                <ChildComponent name={this.state.firstName} age={'55'}></ChildComponent>
-                <ChildComponent arrJobs={this.state.arrJobs}></ChildComponent>
+                <AddComponent addNewJob={this.addNewJob}></AddComponent>
+                <ChildComponent arrJobs={this.state.arrJobs} deleteAJob={this.deleteAJob}></ChildComponent>
             </>
         )
        
