@@ -32,9 +32,10 @@ class AddComponent extends React.Component {
             nameJob: '',
             salary:'',
         })
-        alert("Submit Done !!") 
+        alert("Submit Done !!")
     }
     render() {
+        
         return (
             <>
                 <form>
